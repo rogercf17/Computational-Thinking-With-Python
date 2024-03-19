@@ -1,3 +1,4 @@
+#Exercício com calculo de área
 '''num_lados = int(input('Digite o número de lados do polígono: '))
 if num_lados < 3:
     print('Não é um polígono.')
@@ -17,6 +18,7 @@ elif num_lados == 5:
 else:
     print('Polígono não identificado.')'''
 
+#Exercício com calculo de perímetro
 num_lados = int(input('Digite o número de lados do polígono: '))
 if num_lados < 3:
     print('Não é um polígono')
