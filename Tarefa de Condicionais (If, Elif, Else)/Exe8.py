@@ -1,4 +1,4 @@
-num_lados = int(input('Digite o número de lados do polígono: '))
+'''num_lados = int(input('Digite o número de lados do polígono: '))
 if num_lados < 3:
     print('Não é um polígono.')
 elif num_lados == 3:
@@ -15,4 +15,20 @@ elif num_lados == 4:
 elif num_lados == 5:
     print('é um pentágono.')
 else:
-    print('Polígono não identificado.')
+    print('Polígono não identificado.')'''
+
+num_lados = int(input('Digite o número de lados do polígono: '))
+if num_lados < 3:
+    print('Não é um polígono')
+elif num_lados > 5:
+    print('Polígono não identificado')
+else:
+    medida = int(input('Diga o tamanho do lado: '))
+    if num_lados == 3:
+        forma = 'Triângulo'
+    elif num_lados == 4:
+        forma = 'Quadrado'
+    else:
+        forma = 'Pentágono'
+    perimetro = num_lados*medida
+    print(f'Você escolheu o {forma} com perímetro de {perimetro}')
