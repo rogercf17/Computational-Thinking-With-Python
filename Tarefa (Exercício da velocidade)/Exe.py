@@ -1,5 +1,7 @@
 v = int(input('Digite a velocidade do automóvel: ')) #Variável de velocidade
-if v >= 100 and v <= 120:
+if v <= 100:
+    multa = 0
+elif v <= 120:
     multa = v * 0.2
 elif v <= 150:
     multa = 24 + (0.3 * v)
