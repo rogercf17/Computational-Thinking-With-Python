@@ -1,8 +1,10 @@
-sim = input('Digite a a palavra a segui "sim": ')
-nao = input('Digite a a palavra a segui "não": ')
-while sim != 'sim' and nao != 'não':
-    print('Digite novamente!')
-    sim = input('Digite a a palavra a segui "sim": ')
-    nao = input('Digite a a palavra a segui "não": ')
-    if sim == 'sim' and nao == 'não':
-        print('Tudo certo!')
+resp = input('Você tem carteira de motorista? responda com "sim" ou "não": ')
+while resp != 'sim' and resp != 'não':
+    print('Responda novamente, com "sim" ou "não"')
+    resp = input('Você tem carteira de motorista? responda com "sim" ou "não": ')
+    if resp == 'sim' or resp == 'não':
+        print('Resposta correta, obrigado!')
+        if resp == 'sim':
+            print('SIMMMMMM')
+        else:
+            print('NÃOOOOOO')
