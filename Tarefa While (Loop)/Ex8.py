@@ -1,13 +1,12 @@
-i = 0
+i = 1
 c = 1
 contador = 3
-termo_final = int(input('Quantos termos da sequência de fibonacci deseja mostrar? '))
-print(i)
-print(c)
-while contador <= termo_final:
+print(i, end=' ')
+print(c, end=' ')
+while contador <= 9:
     aux = i + c
-    print(aux)
+    print(aux, end=' ')
     i = c
     c = aux
     contador += 1
-print(f'Fim esses são os {termo_final} primeiros termos da sequência de fibonacci.')
+print(f'\nFim esses são os 9 primeiros termos da sequência de fibonacci.')
