@@ -6,8 +6,8 @@ idade = int(input('Quantos anos você têm? '))
 while idade < 1 or idade > 150:
     print('Idade inválida! Digite uma idade entre 1 e 150.')
     idade = int(input('Quantos anos você têm? '))
-salario = int(input('Qual o seu sálario bruto? '))
-while salario <= 0:
+salario = input('Qual o seu sálario bruto? ')
+while not salario.isnumeric():
     print('Salário inválido! Digite um salário superior a R$ 0.')
     salario = int(input('Qual o seu sálario bruto? '))
 sexo = input('Qual é teu sexo biológico? ')
