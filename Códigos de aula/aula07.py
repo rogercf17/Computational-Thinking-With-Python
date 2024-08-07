@@ -198,7 +198,7 @@ def cria_baralho():
     baralho = []
     for carta in cartas:
         for naipe in naipes:
-            carta_com_naipe = f'{carta} de {naipe}'
+            carta_com_naipe = f'{carta} de {naipe.title()}'
             baralho.append(carta_com_naipe)
     return baralho
 '''
