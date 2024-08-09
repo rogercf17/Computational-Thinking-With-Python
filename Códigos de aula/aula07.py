@@ -201,4 +201,20 @@ def cria_baralho():
             carta_com_naipe = f'{carta} de {naipe.title()}'
             baralho.append(carta_com_naipe)
     return baralho
+
+def cria_naipe(naipe):
+    lista_final = []
+    for i in cartas:
+        lista_final.append(f'{i} de {naipe}')
+    # return ' | '.join(lista_cartas)
+    return lista_final
+def cria_baralho():
+    baralho = []
+    for i in range(len(naipes)):
+        # carta_com_naipe = f'{carta} de {naipe.title()}'
+        carta_com_naipe = cria_naipe(naipes[i])
+        baralho.extend(carta_com_naipe)
+    return baralho
+cartas = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+naipes = ['ouros', 'espada', 'copas', 'paus']
 '''
