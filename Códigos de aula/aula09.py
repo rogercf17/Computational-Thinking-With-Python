@@ -181,7 +181,6 @@ show_matrix(toad2)
 
 
 # Crie a função, abaixo
-'''
 def linha(largura):
     lista_final = [[]]
     i = 1
@@ -191,7 +190,7 @@ def linha(largura):
     return lista_final
 print(linha(3))
 
-'''
+
 # Agora crie uma função duas_linhas. Essa função vai receber uma largura, e devolver
 # duas linhas, com essa largura, na representação de listas de listas
 
@@ -210,17 +209,17 @@ print(linha(3))
 #  Por favor, tome o cuidado de gerar cada uma das duas linhas separadamente, para fugir de um problema chatinho que
 #  eu vou explicar depois
 
-# def duas_linhas(largura):
-#     lista = []
-#     lista_final = []
-#     c = 0
-#     while c <= 1:
-#         for i in range(0, int(largura/2)):
-#             lista.append('.')
-#         lista_final.append(lista)
-#         c += 1
-#     return lista_final
-# print(duas_linhas(4))
+def duas_linhas(largura):
+    lista = []
+    lista_final = []
+    c = 0
+    while c <= 1:
+        for i in range(0, int(largura/2)):
+             lista.append('.')
+        lista_final.append(lista)
+        c += 1
+    return lista_final
+print(duas_linhas(4))
 
 
 # Agora, faça a função sete_linhas, com a mesma idéia
@@ -253,7 +252,7 @@ print(linha(3))
 #  ['.','.']]
 
 # Crie a função, abaixo
-'''
+
 
 #na funcao abaixo, te damos um exemplo pra te ajudar.
 #pode ler e rodar. Nao precisa fazer nada com ela.
@@ -276,7 +275,6 @@ def varias_linhas(largura, altura):
 print(varias_linhas(10, 4))
 
 
-'''
 # Agora que já sabemos criar um mapa, é hora de fazer a exibição desse mapa para o usuário.
 
 # Nossa intenção é ter uma função que exiba as listas
@@ -304,7 +302,7 @@ print(varias_linhas(10, 4))
 
 # a gente vai ter que fazer no passo a passo mesmo, adicionando cada caractere via um for
 
-'''
+
 
 #essa funcao retorna uma string com muitos a. Especificamente, ela usa a variável qtd
 #para escolher quantos. Ela está aqui para te ajudar, você pode ler e rodar, 
@@ -321,7 +319,7 @@ def mostra_lista(lista):
         string += i
     return string
 print(mostra_lista(['b', 'a', 'n', 'a', 'n', 'a']))
-'''
+
 
 # Crie uma funcao mostra_listas, que recebe uma de listas. Cada listinha 
 # dentro dela é uma lista de caracteres. 
@@ -335,7 +333,7 @@ print(mostra_lista(['b', 'a', 'n', 'a', 'n', 'a']))
 # Para colocar uma quebra de linha numa string, basta juntar '\n'. Ou seja, "banana"+"\n"
 # é a string banana, mas com uma quebra de linha no final
 
-'''
+
 #experimente esse print para ver o efeito do \n
 #print("banana"+"\n"+"split"+"\n"+"!")
 
@@ -348,7 +346,7 @@ def mostra_listas(lista_de_listas):
 print(mostra_listas([['b', 'a', 'n', 'a', 'n', 'a'],['n', 'a', 'b', 'a', 'n', 'a']]))
 
 
-'''
+
 # No exercicio 3, queremos começar a desenhar. Ou seja, a
 # colocar caracteres diferentes de '.' no nosso mapa.
 
@@ -366,19 +364,36 @@ print(mostra_listas([['b', 'a', 'n', 'a', 'n', 'a'],['n', 'a', 'b', 'a', 'n', 'a
 #         ['.','.','.']]
 
 # Então primeira_linha(mapa) devolve a lista ['.','b','.']
-'''
+
 
 def primeira_linha(mapa):
-    pass
+    return f'Primeira linha do mapa: {mapa[0]}'
+mapa = [
+    ['.','b','.'],
+    ['a','.','.'],
+    ['.','.','c'],
+    ['.','.','.']
+]
+print(primeira_linha(mapa))
 
 '''
 # Implemente uma função linha_n. Ao chamar linha_n(mapa,3), pegamos, no mapa, a linha de índice 3 (lembre-se que essa é a quarta linha! A primeira tem indice 0, a segunda indice 1, a terceira indice 2)
 '''
 
 def linha_n(mapa,linha):
-    pass
+    maximo = len(mapa) - 1
+    if linha > maximo:
+        return 'Número informado maior que o número de linhas do mapa'
+    return f'Linha: {mapa[linha]}'
+mapa = [
+    ['.','b','.'],
+    ['a','.','.'],
+    ['.','.','c'],
+    ['.','.','.']
+]
+print(linha_n(mapa, 3))
 
-'''
+
 # Implemente um funcao posicao(mapa,x,y). Ao chamar posicao(mapa,x,y), pegamos, no mapa, a linha de índice x, e depois o elemento de indice y dessa linha
 
 # Por exemplo, considerando o mapa
@@ -387,12 +402,16 @@ def linha_n(mapa,linha):
 #  ['b','c','d']]
 
 # Ao chamarmos posicao(1,2), pegamos a linha de indice 1 (ou seja, ['b','c','d']) e retornamos o elemento de indice 2 (ou seja, 'd')
-'''
 
 def posicao(mapa,linha,coluna):
-    pass
+    return mapa[linha][coluna]
+mapa = [
+    ['.','b','.'],
+    ['a','.','.'],
+    ['.','.','c'],
+    ['.','.','.']
+]
 
-'''
 # Exercício 3d: Faremos uma função "coloca" para alterar o desenho. Suponha que começamos com
 # o seguinte desenho:
 
@@ -410,13 +429,17 @@ def posicao(mapa,linha,coluna):
 # l2  .  .  .
 # l3  .  a  .
 
-'''
-
-def coloca(mapa, linha,coluna, simbolo):
-    pass
 
 
-'''
+def coloca(mapa, linha, coluna, simbolo):
+    mapa[linha][coluna] = simbolo
+    return f'Mapa com a mudança: {mapa}'
+print(f'Mapa antigo: {mapa}')
+print(coloca(mapa, 1, 2, 'd'))
+
+
+
+
 # Se voce quiser marcar uma linha inteira com o mesmo simbolo, poderá usar a função a seguir
 
 # marca_linha(mapa,linha, simbolo)
@@ -436,12 +459,13 @@ def coloca(mapa, linha,coluna, simbolo):
 # ....
 # xxxx
 
-'''
-
 def marca_linha(mapa, linha, simbolo):
-    pass
+    maximo = len(mapa[0])
+    for i in range(maximo):
+        mapa[linha][i] = simbolo
+    return mapa
+print(marca_linha(mapa, 0, 'a'))
 
-'''
 # Também podemos fazer uma função analoga chamada marca_coluna
 
 # Por exemplo, se o mapa era
@@ -458,10 +482,14 @@ def marca_linha(mapa, linha, simbolo):
 # ..x.
 # ..x.
 # ..x.
-'''
 
 def marca_coluna(mapa, coluna, simbolo):
-    pass
+    maximo = len(mapa)
+    for i in range(maximo):
+        mapa[i][coluna] = simbolo
+    return f'Coluna {coluna} marcada com {simbolo}:\n{mapa}'
+print(marca_coluna(mapa, 2, 'a'))
+
 
 
 
@@ -616,7 +644,5 @@ def runTests():
         suite = unittest.defaultTestLoader.loadTestsFromTestCase(TestStringMethods)
         unittest.TextTestRunner(verbosity=2,failfast=True).run(suite)
 
-runTests()
-desenho.py
-Exibindo desenho.py…
-'''
+# runTests()
+
