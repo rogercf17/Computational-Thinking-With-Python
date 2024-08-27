@@ -19,21 +19,21 @@ print(verifica_palimdromo('abacate'))
 # por favor pule elas
 
 toad = '''
-.....xxxxxx.....
-...xx..xxxxxx...
-..x....xxxx..x..
-.x....xxxxxx..x.
-xxxxxxx....xxxxx
-xx..xx......xxxx
-x....x......xx.x
-x....xx....xx..x
-xx..xxxxxxxxx..x
-xxxxxxxxxxxxxx.x
-.xxx..x..x..xxx.
-..x...x..x...x..
-..x..........x..
-...x........x...
-....xxxxxxxx....
+# .....xxxxxx.....
+# ...xx..xxxxxx...
+# ..x....xxxx..x..
+# .x....xxxxxx..x.
+# xxxxxxx....xxxxx
+# xx..xx......xxxx
+# x....x......xx.x
+# x....xx....xx..x
+# xx..xxxxxxxxx..x
+# xxxxxxxxxxxxxx.x
+# .xxx..x..x..xxx.
+# ..x...x..x...x..
+# ..x..........x..
+# ...x........x...
+# ....xxxxxxxx....
 '''
 
 toad2 = [['.', '.', '.', '.', '.', 'x', 'x', 'x', 'x', 'x', 'x', '.', '.', '.', '.', '.'],
@@ -86,101 +86,101 @@ show_matrix(toad2)
 
 
 '''
-A idéia desse arquivo é representar um desenho simples em AsciiART
+# A idéia desse arquivo é representar um desenho simples em AsciiART
 
-Por exemplo, poderiamos ter 
-.....xxxxxx.....
-...xx..xxxxxx...
-..x....xxxx..x..
-.x....xxxxxx..x.
-xxxxxxx....xxxxx
-xx..xx......xxxx
-x....x......xx.x
-x....xx....xx..x
-xx..xxxxxxxxx..x
-xxxxxxxxxxxxxx.x
-.xxx..x..x..xxx.
-..x...x..x...x..
-..x..........x..
-...x........x...
-....xxxxxxxx....
+# Por exemplo, poderiamos ter 
+# .....xxxxxx.....
+# ...xx..xxxxxx...
+# ..x....xxxx..x..
+# .x....xxxxxx..x.
+# xxxxxxx....xxxxx
+# xx..xx......xxxx
+# x....x......xx.x
+# x....xx....xx..x
+# xx..xxxxxxxxx..x
+# xxxxxxxxxxxxxx.x
+# .xxx..x..x..xxx.
+# ..x...x..x...x..
+# ..x..........x..
+# ...x........x...
+# ....xxxxxxxx....
 
-Esse desenho tem duas dimensões, largura e altura, que chamaremos, respectivamente, de X e Y.
+# Esse desenho tem duas dimensões, largura e altura, que chamaremos, respectivamente, de X e Y.
 
-Para tomar um exemplo mais simples:
-x.x.
-.x.x
+# Para tomar um exemplo mais simples:
+# x.x.
+# .x.x
 
-Esse desenho consiste de duas linhas, cada uma com tamanho 4. Diriamos que ele tem largura 4 e
-altura 2.
-
-
-a1b2
-c3d4
-
-  c0  c1 c2 c3 
-l0 a  1   b  2
-l1 c  3   d  4
+# Esse desenho consiste de duas linhas, cada uma com tamanho 4. Diriamos que ele tem largura 4 e
+# altura 2.
 
 
-Esse desenho também. Diremos que a letra "a" está na posição (x=0,y=0), 1 está na posicao (x=1,y=0)
-d está na posicao (x=2,y=1)
+# a1b2
+# c3d4
 
-Ou seja, x marca deslocamentos para a direita, começando do 0;
-         y marca deslocamentos para baixo, começando do 0.
-
-Outro exemplo, considere o seguinte desenho
-a1b2
-c3d4
-zkje
-qwtm
-
-Podemos dar nome pras colunas e linhas
-  c0  c1 c2 c3 
-l0 a  1   b  2
-l1 c  3   d  4
-l2 z  k   j  e
-l3 q  w   t  m
+#   c0  c1 c2 c3 
+# l0 a  1   b  2
+# l1 c  3   d  4
 
 
-como j está na linha de indice 2, y dele é 2
-como j está na colun de indice 2, x dele é 2
+# Esse desenho também. Diremos que a letra "a" está na posição (x=0,y=0), 1 está na posicao (x=1,y=0)
+# d está na posicao (x=2,y=1)
 
-como z está na linha de indice 2, y dele é 2
-como z está na colun de indice 0, x dele é 0
+# Ou seja, x marca deslocamentos para a direita, começando do 0;
+#          y marca deslocamentos para baixo, começando do 0.
+
+# Outro exemplo, considere o seguinte desenho
+# a1b2
+# c3d4
+# zkje
+# qwtm
+
+# Podemos dar nome pras colunas e linhas
+#   c0  c1 c2 c3 
+# l0 a  1   b  2
+# l1 c  3   d  4
+# l2 z  k   j  e
+# l3 q  w   t  m
+
+
+# como j está na linha de indice 2, y dele é 2
+# como j está na colun de indice 2, x dele é 2
+
+# como z está na linha de indice 2, y dele é 2
+# como z está na colun de indice 0, x dele é 0
 '''
 
 '''
-Preliminares do exercicio 1e
+# Preliminares do exercicio 1e
 
-Nosso plano é criar uma representação de um desenho.
+# Nosso plano é criar uma representação de um desenho.
 
-Queremos representar o desenho.
-.xa
-x.x
-.x.
+# Queremos representar o desenho.
+# .xa
+# x.x
+# .x.
 
-Para isso, usaremos uma lista de listas, como a que segue
-[ ['.','x','a'], 
-  ['x','.','x'], 
-  ['.','x','.'] ] 
+# Para isso, usaremos uma lista de listas, como a que segue
+# [ ['.','x','a'], 
+#   ['x','.','x'], 
+#   ['.','x','.'] ] 
 
-Repare que a primeira linha do desenho (.xa) está representada por uma lista
-['.','x','a'] dentro da minha lista de listas.
+# Repare que a primeira linha do desenho (.xa) está representada por uma lista
+# ['.','x','a'] dentro da minha lista de listas.
 
-Comecemos fazendo um desenho de uma unica linha, com vários pontos. Para isso,
-usaremos a funcao linha(n)
-
-
-Por exemplo, linha(3) deve retornar [['.','.','.']]
-
-Isso representa o seguinte desenho:
-...
-
-Repare: Isso é uma lista de listas, com uma unica linha dentro, e essa linha tem 3 elementos
+# Comecemos fazendo um desenho de uma unica linha, com vários pontos. Para isso,
+# usaremos a funcao linha(n)
 
 
-Crie a função, abaixo
+# Por exemplo, linha(3) deve retornar [['.','.','.']]
+
+# Isso representa o seguinte desenho:
+# ...
+
+# Repare: Isso é uma lista de listas, com uma unica linha dentro, e essa linha tem 3 elementos
+
+
+# Crie a função, abaixo
 '''
 def linha(largura):
     lista_final = [[]]
@@ -192,68 +192,67 @@ def linha(largura):
 print(linha(3))
 
 '''
-Agora crie uma função duas_linhas. Essa função vai receber uma largura, e devolver
-duas linhas, com essa largura, na representação de listas de listas
+# Agora crie uma função duas_linhas. Essa função vai receber uma largura, e devolver
+# duas linhas, com essa largura, na representação de listas de listas
 
-Por exemplo, duas_linhas(4) vai produzir o desenho
+# Por exemplo, duas_linhas(4) vai produzir o desenho
 
-....
-....
+# ....
+# ....
 
-Lembrando que a representação é no formato de lista de lista, o retorno será
-uma lista com duas dessas: ['.','.','.','.']
+# Lembrando que a representação é no formato de lista de lista, o retorno será
+# uma lista com duas dessas: ['.','.','.','.']
 
-Ou seja:
-[['.','.','.','.'],
- ['.','.','.','.']]
+# Ou seja:
+# [['.','.','.','.'],
+#  ['.','.','.','.']]
 
- Por favor, tome o cuidado de gerar cada uma das duas linhas separadamente, para fugir de um problema chatinho que
- eu vou explicar depois
-'''
-def duas_linhas(largura):
-    lista = []
-    lista_final = []
-    c = 0
-    while c <= 1:
-        for i in range(0, int(largura/2)):
-            lista.append('.')
-        lista_final.append(lista)
-        c += 1
-    return lista_final
-print(duas_linhas(4))
+#  Por favor, tome o cuidado de gerar cada uma das duas linhas separadamente, para fugir de um problema chatinho que
+#  eu vou explicar depois
 
-'''
-Agora, faça a função sete_linhas, com a mesma idéia
+# def duas_linhas(largura):
+#     lista = []
+#     lista_final = []
+#     c = 0
+#     while c <= 1:
+#         for i in range(0, int(largura/2)):
+#             lista.append('.')
+#         lista_final.append(lista)
+#         c += 1
+#     return lista_final
+# print(duas_linhas(4))
 
-Por favor, tome o cuidado de gerar cada uma das sete linhas separadamente, para fugir de um problema chatinho que
- eu vou explicar depois
-'''
 
-def sete_linha(largura):
-    lista_final = []
-    lista = []
-    for _ in range(largura):
-        lista.append('.')
-    for i in range(7):
-        lista_final.append(lista)
-    return lista_final
-print(sete_linha(4))
-'''
-Agora, vamos permitir que o número de linhas varie.
-Ao chamar varias_linhas(2,3), estamos especificando um desenho com largura 2 e altura 3.
-Ou seja, o desenho
+# Agora, faça a função sete_linhas, com a mesma idéia
 
-..
-..
-..
+# Por favor, tome o cuidado de gerar cada uma das sete linhas separadamente, para fugir de um problema chatinho que
+#  eu vou explicar depois
 
-Como antes, queremos a representação como lista de listas. Ou seja, 
-queremos
-[['.','.'],
- ['.','.'],
- ['.','.']]
+# def sete_linha(largura):
+#     lista_final = []
+#     lista = []
+#     for _ in range(largura):
+#         lista.append('.')
+#     for i in range(7):
+#         lista_final.append(lista)
+#     return lista_final
+# print(sete_linha(4))
+# '''
+# Agora, vamos permitir que o número de linhas varie.
+# Ao chamar varias_linhas(2,3), estamos especificando um desenho com largura 2 e altura 3.
+# Ou seja, o desenho
 
-Crie a função, abaixo
+# ..
+# ..
+# ..
+
+# Como antes, queremos a representação como lista de listas. Ou seja, 
+# queremos
+# [['.','.'],
+#  ['.','.'],
+#  ['.','.']]
+
+# Crie a função, abaixo
 '''
 
 #na funcao abaixo, te damos um exemplo pra te ajudar.
@@ -278,31 +277,33 @@ print(varias_linhas(10, 4))
 
 
 '''
-Agora que já sabemos criar um mapa, é hora de fazer a exibição desse mapa para o usuário.
+# Agora que já sabemos criar um mapa, é hora de fazer a exibição desse mapa para o usuário.
 
-Nossa intenção é ter uma função que exiba as listas
+# Nossa intenção é ter uma função que exiba as listas
 
-[['.','.'],
- ['.','.'],
- ['.','.']]
+# [['.','.'],
+#  ['.','.'],
+#  ['.','.']]
 
-como:
+# como:
 
-..
-..
-..
+# ..
+# ..
+# ..
 '''
 
 '''
-Crie uma funcao mostra_lista, que recebe uma lista de caracteres e constroi uma string
-adequada. Por exemplo, se ela recever a lista ['b', 'a', 'n', 'a', 'n', 'a'],
-deverá retornar a string "banana"
 
-repare que converter a lista para uma string usando a função str não faz o que a gente quer!
->>> str(['b', 'a', 'n', 'a', 'n', 'a'])
-"['b', 'a', 'n', 'a', 'n', 'a']"
+# Crie uma funcao mostra_lista, que recebe uma lista de caracteres e constroi uma string
+# adequada. Por exemplo, se ela recever a lista ['b', 'a', 'n', 'a', 'n', 'a'],
+# deverá retornar a string "banana"
 
-a gente vai ter que fazer no passo a passo mesmo, adicionando cada caractere via um for
+# repare que converter a lista para uma string usando a função str não faz o que a gente quer!
+# >>> str(['b', 'a', 'n', 'a', 'n', 'a'])
+# "['b', 'a', 'n', 'a', 'n', 'a']"
+
+# a gente vai ter que fazer no passo a passo mesmo, adicionando cada caractere via um for
+
 '''
 
 #essa funcao retorna uma string com muitos a. Especificamente, ela usa a variável qtd
@@ -321,17 +322,18 @@ def mostra_lista(lista):
     return string
 print(mostra_lista(['b', 'a', 'n', 'a', 'n', 'a']))
 '''
-Crie uma funcao mostra_listas, que recebe uma de listas. Cada listinha 
-dentro dela é uma lista de caracteres. 
-Por exemplo, se ela recever a lista de listas 
-[['b', 'a', 'n', 'a', 'n', 'a'],['n', 'a', 'b', 'a', 'n', 'a']], deverá retornar a string
 
-banana
-nabana
+# Crie uma funcao mostra_listas, que recebe uma de listas. Cada listinha 
+# dentro dela é uma lista de caracteres. 
+# Por exemplo, se ela recever a lista de listas 
+# [['b', 'a', 'n', 'a', 'n', 'a'],['n', 'a', 'b', 'a', 'n', 'a']], deverá retornar a string
 
-Repare que eu inseri duas quebras de linha, uma depois de banana e uma depois de nabana
-Para colocar uma quebra de linha numa string, basta juntar '\n'. Ou seja, "banana"+"\n"
-é a string banana, mas com uma quebra de linha no final
+# banana
+# nabana
+
+# Repare que eu inseri duas quebras de linha, uma depois de banana e uma depois de nabana
+# Para colocar uma quebra de linha numa string, basta juntar '\n'. Ou seja, "banana"+"\n"
+# é a string banana, mas com uma quebra de linha no final
 
 '''
 #experimente esse print para ver o efeito do \n
@@ -347,66 +349,66 @@ print(mostra_listas([['b', 'a', 'n', 'a', 'n', 'a'],['n', 'a', 'b', 'a', 'n', 'a
 
 
 '''
-No exercicio 3, queremos começar a desenhar. Ou seja, a
-colocar caracteres diferentes de '.' no nosso mapa.
+# No exercicio 3, queremos começar a desenhar. Ou seja, a
+# colocar caracteres diferentes de '.' no nosso mapa.
 
-Mas primeiro, façamos algumas preliminares
-'''
+# Mas primeiro, façamos algumas preliminares
+# '''
 
-'''
-Implemente uma função primeira_linha,
-que devolve a primeira linha do mapa.
+# '''
+# Implemente uma função primeira_linha,
+# que devolve a primeira linha do mapa.
 
-Ou seja, se o mapa é
-mapa = [['.','b','.'],
-        ['a','.','.'],
-        ['.','.','c'],
-        ['.','.','.']]
+# Ou seja, se o mapa é
+# mapa = [['.','b','.'],
+#         ['a','.','.'],
+#         ['.','.','c'],
+#         ['.','.','.']]
 
-Então primeira_linha(mapa) devolve a lista ['.','b','.']
+# Então primeira_linha(mapa) devolve a lista ['.','b','.']
 '''
 
 def primeira_linha(mapa):
     pass
 
 '''
-Implemente uma função linha_n. Ao chamar linha_n(mapa,3), pegamos, no mapa, a linha de índice 3 (lembre-se que essa é a quarta linha! A primeira tem indice 0, a segunda indice 1, a terceira indice 2)
+# Implemente uma função linha_n. Ao chamar linha_n(mapa,3), pegamos, no mapa, a linha de índice 3 (lembre-se que essa é a quarta linha! A primeira tem indice 0, a segunda indice 1, a terceira indice 2)
 '''
 
 def linha_n(mapa,linha):
     pass
 
 '''
-Implemente um funcao posicao(mapa,x,y). Ao chamar posicao(mapa,x,y), pegamos, no mapa, a linha de índice x, e depois o elemento de indice y dessa linha
+# Implemente um funcao posicao(mapa,x,y). Ao chamar posicao(mapa,x,y), pegamos, no mapa, a linha de índice x, e depois o elemento de indice y dessa linha
 
-Por exemplo, considerando o mapa
+# Por exemplo, considerando o mapa
 
-[['.','.','a'],
- ['b','c','d']]
+# [['.','.','a'],
+#  ['b','c','d']]
 
-Ao chamarmos posicao(1,2), pegamos a linha de indice 1 (ou seja, ['b','c','d']) e retornamos o elemento de indice 2 (ou seja, 'd')
+# Ao chamarmos posicao(1,2), pegamos a linha de indice 1 (ou seja, ['b','c','d']) e retornamos o elemento de indice 2 (ou seja, 'd')
 '''
 
 def posicao(mapa,linha,coluna):
     pass
 
 '''
-Exercício 3d: Faremos uma função "coloca" para alterar o desenho. Suponha que começamos com
-o seguinte desenho:
+# Exercício 3d: Faremos uma função "coloca" para alterar o desenho. Suponha que começamos com
+# o seguinte desenho:
 
-...
-...
-...
-...
+# ...
+# ...
+# ...
+# ...
 
-Ao fazer coloca(desenho,1,3,'a'), queremos adicionar a letra 'a' na linha de indice 1,
-coluna de indice três. Ou seja, em c1 l3
+# Ao fazer coloca(desenho,1,3,'a'), queremos adicionar a letra 'a' na linha de indice 1,
+# coluna de indice três. Ou seja, em c1 l3
 
-   c0 c1 c2
-l0  .  .  .
-l1  .  .  .
-l2  .  .  .
-l3  .  a  .
+#    c0 c1 c2
+# l0  .  .  .
+# l1  .  .  .
+# l2  .  .  .
+# l3  .  a  .
 
 '''
 
@@ -415,24 +417,24 @@ def coloca(mapa, linha,coluna, simbolo):
 
 
 '''
-Se voce quiser marcar uma linha inteira com o mesmo simbolo, poderá usar a função a seguir
+# Se voce quiser marcar uma linha inteira com o mesmo simbolo, poderá usar a função a seguir
 
-marca_linha(mapa,linha, simbolo)
+# marca_linha(mapa,linha, simbolo)
 
-Por exemplo, se o mapa era
+# Por exemplo, se o mapa era
 
-....
-....
-....
+# ....
+# ....
+# ....
 
-E eu fizer marca_linha(mapa,2,'x')
+# E eu fizer marca_linha(mapa,2,'x')
 
-Terei
+# Terei
 
 
-....
-....
-xxxx
+# ....
+# ....
+# xxxx
 
 '''
 
@@ -440,22 +442,22 @@ def marca_linha(mapa, linha, simbolo):
     pass
 
 '''
-Também podemos fazer uma função analoga chamada marca_coluna
+# Também podemos fazer uma função analoga chamada marca_coluna
 
-Por exemplo, se o mapa era
+# Por exemplo, se o mapa era
 
-....
-....
-....
+# ....
+# ....
+# ....
 
-E eu fizer marca_coluna(mapa,2,'x')
+# E eu fizer marca_coluna(mapa,2,'x')
 
-Terei
+# Terei
 
 
-..x.
-..x.
-..x.
+# ..x.
+# ..x.
+# ..x.
 '''
 
 def marca_coluna(mapa, coluna, simbolo):
