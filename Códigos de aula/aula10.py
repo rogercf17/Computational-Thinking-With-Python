@@ -104,7 +104,7 @@ arestas_1 = []
 # Considerando o grafo
 # 0111
 # 1001
-# 1000
+# 1000ma
 # 1100
 #
 # diga, na lista arestas_2, se estão ligados
@@ -136,8 +136,11 @@ max_arestas = []
 # representado por uma matriz, a quantidade de vertices, e dois vertices,
 # v1 e v2, e devolve True se existe aresta entre eles.
 
-def existe_aresta(arestas, num_vertices, v1, v2):
-    pass
+def existe_aresta(matriz_adjacencia, num_vertices, v1, v2):
+    if v1 < 0 or v1 >= num_vertices or v2 < 0 or v2 >= num_vertices:
+        return False
+    return matriz_adjacencia[v1][v2] != 0
+
 
 
 
@@ -295,12 +298,13 @@ class TestStringMethods(unittest.TestCase):
    def test01a_listas_true_false(self):
       self.assertEqual(len(arestas_1),6)
       verifica_lista_b(arestas_1,6,57)
-
+'''
    def test01b_listas_true_false(self):
        self.assertEqual(len(arestas_2),6)
        verifica_lista_b(arestas_2,6,39)
+'''
 
-   def test01c_listas_true_false(self):
+    def test01c_listas_true_false(self):
        self.assertEqual(len(arestas_3),6)
        verifica_lista_b(arestas_3,6,12)
 
@@ -439,3 +443,32 @@ def runTests():
         unittest.TextTestRunner(verbosity=2,failfast=True).run(suite)
 
 # runTests()
+
+# import numpy as np
+# import math
+
+# matriz = np.arange(15, dtype=np.int64)
+# print(matriz)
+# matriz = matriz.reshape(5,3)
+# print(matriz)
+
+# matriz[1:, ::2] = -1
+# print(matriz)
+
+# maximo = matriz.max(axis=1)
+# print(maximo)
+
+# print(matriz.shape) (N° de linhas, N° de colunas)
+# print(matriz.size) Número de elementos
+# print(matriz.ndim) Número de dimensões largura e altura
+
+# if matriz.size == math.prod(matriz.shape):
+#     print('Verdadeiro')
+
+# print(np.zeros(2, dtype=np.int64))
+# print(np.ones(2))
+# print(np.empty(5))
+# print(np.arange(5, 20, 2))
+# print(np.linspace(0, 10, 5, dtype=np.int64))
+
+
